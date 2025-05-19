@@ -24,3 +24,27 @@ html, body {
     width: 100%;
     margin-top: auto;
 }
+#weather {
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  opacity: 0;
+}
+
+#weather .content {
+  position: relative;
+  z-index: 1;
+  /* your content styles */
+}
