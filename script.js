@@ -35,21 +35,34 @@ function updateWeather(data){
     let imgurl = "";
 
     if (weathers.includes("cloud")) {
-        imgurl = "url('images/clouds.jpg')";
+        changeBackground('images/clouds.jpg');
     } else if (weathers.includes("rain")) {
-        imgurl = "url('images/clouds.jpg')";
+        changeBackground('images/clouds.jpg');
     } else if (weathers.includes("clear")) {
-        imgurl = "url('images/sunny.jpg')";
+        changeBackground('images/sunny.jpg');
     } else if (weathers.includes("snow")) {
-        imgurl = "url('images/snowfall.jpg')";
+        changeBackground('images/snowfall.jpg');
     } else {
-        imgurl = "url('images/clearday.jpg')";
+        changeBackground('images/clearday.jpg');
     }
 
-    section.style.backgroundImage = imgurl;
-    section.style.backgroundSize = "cover";
-    section.style.backgroundPosition = "center center";
-    section.style.backgroundRepeat = "no-repeat";
+    // section.style.backgroundImage = imgurl;
+    // section.style.backgroundSize = "cover";
+    // section.style.backgroundPosition = "center center";
+    // section.style.backgroundRepeat = "no-repeat";
+    function changeBackground(imageUrl) {
+  const overlay = document.querySelector(".bg-overlay");
+
+  // Set the new image and fade it in
+  overlay.style.backgroundImage = `url(${imageUrl})`;
+  overlay.style.opacity = 1;
+
+  // After fade-in, set it as the actual background and fade out overlay
+  setTimeout(() => {
+    document.getElementById("weather").style.backgroundImage = `url(${imageUrl})`;
+    overlay.style.opacity = 0;
+  }, 1000); // Same as transition duration
+}
 
     
 }
